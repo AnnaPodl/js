@@ -1,78 +1,76 @@
+/*
+    1.Написать функцию, преобразующую число в объект. 
+    Передавая на вход число от 0 до 999, мы должны получить на выходе объект, 
+    в котором в соответствующих свойствах описаны единицы, десятки и сотни. 
+    Например, для числа 245 мы должны получить следующий объект: 
+    {
+        ‘единицы’: 5, 
+        ‘десятки’: 4, 
+        ‘сотни’: 2
+    }
+    Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+*/
+var a;
+a = prompt();
 
+class SimpleNumber {
+  сотни;
+  десятки;
+  единицы;
+}
 
-/*1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100*/
-function isPrime(value) {
-  for (let i = 2; i < value; i += 1) {
-    if (value % i === 0) return false;
+function ParseNum(number) {
+  let obj = new SimpleNumber();
+  if (number > 999) {
+    console.log(`Ошибка! Число ${number} более 999!`);
+    return obj;
   }
-  if (value >= 1) return true;
+  let temp = number.toString();
+  obj.сотни = temp[0];
+  obj.десятки = temp[1];
+  obj.единицы = temp[2];
+  return obj;
 }
 
-var i = 100;
-while (i) {
-  if (isPrime(i)) console.log(i);
-  i -= 1;
-}
+console.log(ParseNum(a));
 
+/* 2
+Продолжить работу с интернет-магазином:
+В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно заменить их элементы?
+Реализуйте такие объекты.
+Перенести функционал подсчета корзины на объектно-ориентированную базу.*/
 
-/* 2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
-3. Товары в корзине хранятся в массиве. Задачи:
-a) Организовать такой массив для хранения товаров в корзине;
-b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.*/
+let basket = {
+  products: [
+    {
+      product: "pen",
+      quantity: 2,
+      price: 56
+    },
+    {
+      product: "pencil",
+      quantity: 1,
+      price: 89
+    },
+    {
+      product: "file",
+      quantity: 5,
+      price: 14
+    },
+    {
+      product: "paper",
+      quantity: 1,
+      price: 64
+    }
+  ],
 
-function getNumber(min, max) {
-  var number = parseInt(Math.random() * (max - min) + min);
-  if (number === -0) number = 0;
-  return number;
-}
-
-var basket = [
-  {
-    product: "pen",
-    price: getNumber(50, 100)
-  },
-  {
-    product: "pencil",
-    price: getNumber(50, 100)
-  },
-  {
-    product: "file",
-    price: getNumber(50, 100)
-  },
-  {
-    product: "paper",
-    price: getNumber(50, 100)
+  countBasketPrice() {
+    let result = 0;
+    for (i in this.products) {
+      result += this.products[i].quantity * this.products[i].price;
+    }
+    return result;
   }
-];
-var basketPrice = 0;
-for (var prod of basket) {
-  basketPrice += prod.price;
-  console.log("Товар " + prod.product + " стоит: " + prod.price);
-}
+};
 
-console.log("Стоимость корзины: " + basketPrice + " у.е.");
-
-// ------------------------------------------------------------------------------------------------------------
-
-
-function countBasketPrice(basket) {
-  var funBasketPrice = 0;
-  for (var prod of basket) {
-    funBasketPrice += prod.price;
-  }
-  return funBasketPrice;
-}
-
-console.log("Стоимость корзины: " + countBasketPrice(basket) + " у.е.");
-
-/* 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
-for(…){// здесь пусто}*/
-for (var i = 0; i < 10; console.log(i++)) { }
-
-/* 5 *Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов*/
-
-for (var i = 0; i < 20; ++i) {
-  var str = '*';
-  str = str.repeat(i)
-  console.log(str);
-}
+console.log(basket.countBasketPrice());
