@@ -1,42 +1,76 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>lesson 6</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="card-deck text-center">
-            <div class="card shadow-sm">
-                <div class="card-header">
-                    <h4 class="font-weight-normal">Product №1</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">56 <small class="text-muted">руб</small></h1>
-                    <button type="button" class="btn btn-lg btn-block btn-primary" id="btn">Купить</button>
-                </div>
-            </div>
-            <div class="card shadow-sm">
-                <div class="card-header">
-                    <h4 class="font-weight-normal">Product №2</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">89 <small class="text-muted">руб</small></h1>
-                    <button type="button" class="btn btn-lg btn-block btn-primary" id="btn1">Купить</button>
-                </div>
+    <form>
+        <div class="product-cart">
+            <div class="product-item">
+                <div id="catalog" class="product-item"> Корзина с товарами: - </div>
+                <div id="cart" class="product-item"> Итого </div>
+                <a href="basket.html" class="btn">Перейти к покупке</a>
             </div>
         </div>
-        <div id='cart' class="alert alert-info col-4" role="alert">Cart</div>
-    </div>
-
-    <script src="script.js"></script>
+        <div class="product-group">
+            <div id="product_1" class="product-description product-item">
+                <div class="name">Ручка</div>
+                <div class="price">50</div>
+                <div class="unit">шт.</div>
+            </div>
+            <div class="product-item">
+                <input class="product-btn-change" type="button" value="-" name="product_1" />
+                <input class="product_1" type="text" size="10" value="0" />
+                <input class="product-btn-change" type="button" value="+" name="product_1" />
+                <input class="product-btn-buy" type="button" value="Купить" name="product_1" />
+            </div>
+        </div>
+        <div class="product-group">
+            <div id="product_2" class="product-description product-item">
+                <div class="name">Карандаш</div>
+                <div class="price">30</div>
+                <div class="unit">шт.</div>
+            </div>
+            <div class="product-item">
+                <input class="product-btn-change" type="button" value="-" name="product_2" />
+                <input class="product_2" type="text" size="10" value="0" />
+                <input class="product-btn-change" type="button" value="+" name="product_2" />
+                <input class="product-btn-buy" type="button" value="Купить" name="product_2" />
+            </div>
+        </div>
+        <div class="product-group">
+            <div id="product_3" class="product-description product-item">
+                <div class="name">Тетрадь</div>
+                <div class="price">70</div>
+                <div class="unit">шт.</div>
+            </div>
+            <div class="product-item">
+                <input class="product-btn-change" type="button" value="-" name="product_3" />
+                <input class="product_3" type="text" size="10" value="0" />
+                <input class="product-btn-change" type="button" value="+" name="product_3" />
+                <input class="product-btn-buy" type="button" value="Купить" name="product_3" />
+            </div>
+        </div>
+        <div class="product-group">
+            <div id="product_4" class="product-description product-item">
+                <div class="name">Календарь</div>
+                <div class="price">85</div>
+                <div class="unit">шт.</div>
+            </div>
+            <div class="product-item">
+                <input class="product-btn-change" type="button" value="-" name="product_4" />
+                <input class="product_4" type="text" size="10" value="0" />
+                <input class="product-btn-change" type="button" value="+" name="product_4" />
+                <input class="product-btn-buy" type="button" value="Купить" name="product_4" />
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript" src="script/less6.js"></script>
 </body>
 
 </html>
