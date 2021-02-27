@@ -1,76 +1,55 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интернет-магазин</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Lesson8</title>
 </head>
 
 <body>
-    <form>
-        <div class="product-cart">
-            <div class="product-item">
-                <div id="catalog" class="product-item"> Корзина с товарами: - </div>
-                <div id="cart" class="product-item"> Итого </div>
-                <a href="basket.html" class="btn">Перейти к покупке</a>
-            </div>
-        </div>
-        <div class="product-group">
-            <div id="product_1" class="product-description product-item">
-                <div class="name">Ручка</div>
-                <div class="price">50</div>
-                <div class="unit">шт.</div>
-            </div>
-            <div class="product-item">
-                <input class="product-btn-change" type="button" value="-" name="product_1" />
-                <input class="product_1" type="text" size="10" value="0" />
-                <input class="product-btn-change" type="button" value="+" name="product_1" />
-                <input class="product-btn-buy" type="button" value="Купить" name="product_1" />
-            </div>
-        </div>
-        <div class="product-group">
-            <div id="product_2" class="product-description product-item">
-                <div class="name">Карандаш</div>
-                <div class="price">30</div>
-                <div class="unit">шт.</div>
-            </div>
-            <div class="product-item">
-                <input class="product-btn-change" type="button" value="-" name="product_2" />
-                <input class="product_2" type="text" size="10" value="0" />
-                <input class="product-btn-change" type="button" value="+" name="product_2" />
-                <input class="product-btn-buy" type="button" value="Купить" name="product_2" />
-            </div>
-        </div>
-        <div class="product-group">
-            <div id="product_3" class="product-description product-item">
-                <div class="name">Тетрадь</div>
-                <div class="price">70</div>
-                <div class="unit">шт.</div>
-            </div>
-            <div class="product-item">
-                <input class="product-btn-change" type="button" value="-" name="product_3" />
-                <input class="product_3" type="text" size="10" value="0" />
-                <input class="product-btn-change" type="button" value="+" name="product_3" />
-                <input class="product-btn-buy" type="button" value="Купить" name="product_3" />
-            </div>
-        </div>
-        <div class="product-group">
-            <div id="product_4" class="product-description product-item">
-                <div class="name">Календарь</div>
-                <div class="price">85</div>
-                <div class="unit">шт.</div>
-            </div>
-            <div class="product-item">
-                <input class="product-btn-change" type="button" value="-" name="product_4" />
-                <input class="product_4" type="text" size="10" value="0" />
-                <input class="product-btn-change" type="button" value="+" name="product_4" />
-                <input class="product-btn-buy" type="button" value="Купить" name="product_4" />
-            </div>
-        </div>
-    </form>
-    <script type="text/javascript" src="script/less6.js"></script>
+    <script>
+        // 1. Для практикума из занятия 7 продумать, где можно применить замыкания.
+        // function refocus(direction) { return function () { let item_count = document.querySelector('.item-count'); if (direction == "+") { item_count.textContent = Number(item_count.textContent) + 1; } else { item_count.textContent = Number(item_count.textContent) - 1; }; }; };
+        // let item_plus = refocus("+"); let item_minus = refocus("-");
+        // document.querySelector('.item-plus').onclick = item_plus; 
+        //document.querySelector('.item-minus').onclick = item_minus;
+
+        // 2. Не выполняя кода, ответить, что выведет браузер и почему:
+        if (!("a" in window)) {
+            var a = 1;
+        }
+        alert(a);
+        //Ответ: undefined, а объявлена в теле цикла
+
+        var b = function a(x) {
+            x && a(--x);
+        };
+        alert(a);
+        //выйдет ошибка, так как объект а не определен
+
+        function a(x) {
+            return x * 2;
+        }
+        var a;
+        alert(a);
+        //Вернет функцию
+
+        function b(x, y, a) {
+            arguments[2] = 10;
+            alert(a);
+        }
+        b(1, 2, 3);
+        //Ответ: 10, т.к. а присваевается значение 10 через аргумент
+
+
+        function a() {
+            alert(this);
+        }
+        a.call(null);
+        //внутри this будет объект window. функция сообщает о том объекте который ее вызвал
+        // null относится к глабальному контексту
+    </script>
 </body>
 
 </html>
